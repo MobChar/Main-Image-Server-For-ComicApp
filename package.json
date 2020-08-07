@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "Server to place comic image",
   "main": "index.js",
-  "start": "node index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
   "repository": {
     "type": "git",
     "url": ""
