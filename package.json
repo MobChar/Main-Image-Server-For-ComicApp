@@ -1,0 +1,16 @@
+{
+  "name": "comicimageserver",
+  "version": "1.0.0",
+  "description": "Server to place comic image",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "MobChar26",
+  "license": "ISC",
+  "dependencies": {
+    "amqplib": "^0.6.0",
+    "express": "^4.17.1",
+    "multer": "^1.4.2"
+  }
+}
