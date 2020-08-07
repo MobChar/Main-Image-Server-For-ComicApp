@@ -35,7 +35,6 @@ setUpRabbit();
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
-        console.log("E"+__dirname + "/uploadImage");
         cb(null, __dirname + "/uploadImage");
     },
 
