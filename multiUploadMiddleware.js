@@ -58,6 +58,7 @@ let storage = multer.diskStorage({
             //Send image to other image server through rabbitmq
             var imageServerData = {
                 fileName: fileName,
+                comicId: req.params.comicId,
                 fileBuffer: chunks[0]
             }
             rabbitChannel.sendToQueue('image-server-new-image', Buffer.from(JSON.stringify(imageServerData)));
