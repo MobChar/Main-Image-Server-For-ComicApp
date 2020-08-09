@@ -21,7 +21,7 @@ app.get('/image/:fileName', function (req, res) {
         res.end('Cannot find the image');
     });
 });
-app.post('/image/:comicId', function (req, res) {
+app.post('/image/:chapterId', function (req, res) {
     if (!req.headers.authorization || req.headers.authorization.indexOf('Basic ') === -1) {
         return res.status(401).end('You dont have permissison to POST');
     }
