@@ -82,6 +82,7 @@ let multipleUploadMiddleware = util.promisify(uploadManyFiles);
 
 let multipleUpload = async (req, res) => {
     try {
+
         await multipleUploadMiddleware(req, res);
         if (req.files.length <= 0) {
             return res.send(`You must select at least 1 file or more.`);

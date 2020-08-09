@@ -2,6 +2,11 @@ express = require('express');
 const fs = require('fs');
 const multipleUpload = require('./multiUploadMiddleware').multipleUpload;//Already setup
 
+
+if (!fs.existsSync(__dirname+'/uploadImage/')){
+    fs.mkdirSync(__dirname+'/uploadImage/');
+}
+
 //Set up app server
 const app = express();
 app.use(function (err, req, res, next) {
