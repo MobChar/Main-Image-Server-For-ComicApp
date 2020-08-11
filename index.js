@@ -1,7 +1,7 @@
 express = require('express');
 const fs = require('fs');
-const multipleUpload = require('./multiUploadMiddleware').multipleUpload;//Already setup
-
+const uploadImage = require('./multiUploadMiddleware').uploadImage;//Already setup
+const uploadThumb = require('./multiUploadMiddleware').uploadThumb;//Already setup
 
 if (!fs.existsSync(__dirname+'/uploadImage/')){
     fs.mkdirSync(__dirname+'/uploadImage/');
@@ -37,7 +37,21 @@ app.post('/image/:chapterId', function (req, res) {
     const [username, password] = credentials.split(':');
     if(username!='root'||password!='root') res.status(401).end('You dont have permissison to POST');
 
-    multipleUpload(req, res);
+    uploadImage(req, res);
+});
+
+app.post('/thumb/:comicId', function (req, res) {
+    if (!req.headers.authorization || req.headers.authorization.indexOf('Basic ') === -1) {
+        return res.status(401).end('You dont have permissison to POST');
+    }
+
+    // verify auth credentials
+    const base64Credentials =  req.headers.authorization.split(' ')[1];
+    const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
+    const [username, password] = credentials.split(':');
+    if(username!='root'||password!='root') res.status(401).end('You dont have permissison to POST');
+
+    uploadThumb(req, res);
 });
 app.get('*', function (req, res) {
     res.status(404);
