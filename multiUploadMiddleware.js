@@ -5,7 +5,7 @@ const path = require("path");
 const multer = require("multer");
 const fs = require("fs");
 
-var fileId = 18;
+var fileId = 132;
 var serverId='A';
 let debug = console.log.bind(console);
 var rabbitChannel;
