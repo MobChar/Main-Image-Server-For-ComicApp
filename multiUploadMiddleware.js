@@ -114,7 +114,7 @@ let thumbStorage = multer.diskStorage({
 });
 
 
-let uploadImageMiddleware = util.promisify(multer({ storage: imageStorage }).array("files", 30));
+let uploadImageMiddleware = util.promisify(multer({ storage: imageStorage }).array("files", 100));
 let uploadThumbMiddleware = util.promisify(multer({ storage: thumbStorage }).array("files", 1));
 
 
