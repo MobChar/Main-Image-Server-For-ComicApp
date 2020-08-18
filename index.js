@@ -35,7 +35,7 @@ app.post('/image/:chapterId', function (req, res) {
     const base64Credentials =  req.headers.authorization.split(' ')[1];
     const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
     const [username, password] = credentials.split(':');
-    if(username!='root'||password!='root') res.status(401).end('You dont have permissison to POST');
+    if(username!='admin'||password!='admin') res.status(401).end('You dont have permissison to POST');
 
     uploadImage(req, res);
 });
@@ -49,7 +49,7 @@ app.post('/thumb/:comicId', function (req, res) {
     const base64Credentials =  req.headers.authorization.split(' ')[1];
     const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
     const [username, password] = credentials.split(':');
-    if(username!='root'||password!='root') res.status(401).end('You dont have permissison to POST');
+    if(username!='admin'||password!='admin') res.status(401).end('You dont have permissison to POST');
 
     uploadThumb(req, res);
 });
